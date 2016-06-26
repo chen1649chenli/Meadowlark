@@ -1,9 +1,9 @@
 var express = require('express');
 var handlebars = require('express3-handlebars')
         .create({defaultLayout:'main'});
-
+var fortune = require('./lib/fortune.js');
 var app = express();
-var fortunes = ["No pains no gains","You will have a pleasant surprise","River never springs","Conquer your fear"];
+
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', "handlebars");
@@ -12,12 +12,13 @@ app.set('port',process.env.PORT||3000);
 
 app.use(express.static(__dirname + '/public'));
 app.get('/', function (req,res){
+  //a file named home.handlebars needs to exist in ./views folder for the render command in the next line to work
   res.render('home');
 });
 
 app.get('/about', function (req,res){
-  var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
-  res.render('about',{fortune:randomFortune});
+
+  res.render('about',{fortune:fortune.getFortune()});
 });
 
 app.use(function (req,res,next){
