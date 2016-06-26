@@ -1,0 +1,16 @@
+{
+  "name": "meadowlark",
+  "version": "0.0.1",
+  "description": "This is a teaching project in the book \"Web Development with Node & Express - by Ethan Brown\" ",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Li Chen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express3-handlebars": "^0.5.2"
+  }
+}
